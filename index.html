@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rahul Bhatia - Cricket Tips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #0f5c2f 0, #032417 45%, #01130b 100%);
+      color: #fff;
+      padding: 20px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 32px;
+      background: linear-gradient(160deg, #063820, #041f14 60%, #010e09);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+      padding: 26px 20px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #22c55e, #166534 55%, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+      border: 3px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .logo-circle span {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .header-text {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-text h1 {
+      font-size: 26px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .header-text h1 span {
+      font-size: 24px;
+    }
+
+    .header-text p {
+      margin-top: 6px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .stat-box {
+      border-radius: 18px;
+      padding: 10px 6px;
+      background: linear-gradient(145deg, #064e3b, #022c22);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      opacity: 0.85;
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .primary-cta {
+      margin: 6px 0 16px;
+    }
+
+    .primary-btn {
+      width: 100%;
+      border-radius: 999px;
+      padding: 13px 16px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #1c1917;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(250, 204, 21, 0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+
+    .primary-btn span {
+      font-size: 18px;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.45);
+    }
+
+    .primary-btn:active {
+      transform: translateY(1px) scale(0.99);
+      box-shadow: 0 8px 18px rgba(250, 204, 21, 0.35);
+    }
+
+    .feature-card {
+      margin-bottom: 14px;
+      padding: 14px 14px 12px;
+      border-radius: 22px;
+      background: linear-gradient(150deg, rgba(6, 95, 70, 0.95), rgba(6, 78, 59, 0.95));
+      border: 1px solid rgba(45, 212, 191, 0.4);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .feature-icon {
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .feature-item strong {
+      font-weight: 600;
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #020617;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tag-pill span {
+      font-size: 15px;
+    }
+
+    .bottom-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .contact {
+      font-size: 13px;
+    }
+
+    .contact span {
+      font-weight: 600;
+      color: #22c55e;
+    }
+
+    .secondary-cta {
+      margin-top: 14px;
+    }
+
+    .secondary-btn {
+      width: 100%;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: transparent;
+      border: 1px solid rgba(52, 211, 153, 0.8);
+      color: #a7f3d0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(16, 185, 129, 0.1);
+      transform: translateY(-1px);
+      border-color: rgba(52, 211, 153, 1);
+    }
+
+    .secondary-btn span {
+      font-size: 17px;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .header-text h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Logo -->
+    <div class="logo-wrap">
+    <div class="logo-circle">
+        <img src="logo.jpg" alt="Rahul Bhatia" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+    </div>
+    </div>
+
+    <!-- Headings -->
+    <div class="header-text">
+      <h1>RAHUL BHATIA <span>🏏</span></h1>
+      <p>Premium Cricket Match & Toss Predictions</p>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Subscribers</div>
+        <div class="stat-value">
+          <span id="subscribers-count" data-target="28375">0</span>+
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Accuracy</div>
+        <div class="stat-value">95%</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Tips</div>
+        <div class="stat-value">Free Toss + Match</div>
+      </div>
+    </div>
+
+    <!-- Join button -->
+    <div class="primary-cta">
+      <button class="primary-btn" id="joinBtn">
+        <span>🏏</span> JOIN CHANNEL NOW
+      </button>
+    </div>
+
+    <!-- Feature section -->
+    <div class="feature-card">
+      <div class="tag-pill">
+        <span>🔥</span> 95% Accuracy in All Matches
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <div><strong>Toss + Match Bilkul Free Tips</strong></div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">⭐</div>
+        <div>Daily Expert Guidance with smart risk management</div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">📲</div>
+        <div>Immediate updates before every match session</div>
+      </div>
+    </div>
+
+    <!-- Contact / info -->
+    <div class="bottom-info">
+      <div class="contact">
+        Contact - <span>@Sirji55</span>
+      </div>
+      <div>All tips for educational & entertainment purposes only.</div>
+    </div>
+
+    <!-- Secondary CTA -->
+    <div class="secondary-cta">
+      <button class="secondary-btn" id="vipBtn">
+        <span>💎</span> JOIN VIP UPDATES
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ---- Animated subscribers counter ----
+    const counterEl = document.getElementById("subscribers-count");
+    const target = parseInt(counterEl.getAttribute("data-target"), 10);
+
+    let current = 0;
+    const duration = 1200; // ms
+    const startTime = performance.now();
+
+    function animateCounter(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      current = Math.floor(target * progress);
+      counterEl.textContent = current.toLocaleString("en-IN");
+      if (progress < 1) {
+        requestAnimationFrame(animateCounter);
+      }
+    }
+    requestAnimationFrame(animateCounter);
+
+    // ---- Buttons click handling ----
+    const joinBtn = document.getElementById("joinBtn");
+    const vipBtn = document.getElementById("vipBtn");
+
+    // Yaha apna actual channel link daal do:
+    const TELEGRAM_URL = "https://t.me/+9q95C8HPAb9kNjA1";
+
+    joinBtn.addEventListener("click", function () {
+      // window.location.href = TELEGRAM_URL;  // direct open
+      alert("Aapko Rahul Bhatia ke official tips channel par le jaa rahe hain. Apna Telegram link code me update karein.");
+    });
+
+    vipBtn.addEventListener("click", function () {
+      alert("VIP updates ke liye Contact - @Sirji55");
+    });
+  </script>
+</body>
+</html>
