@@ -1,47 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- Custom Footer Code for Safe Meta Pixel -->
+<head><!-- Meta Pixel Code -->
 <script>
-(function(){
-  // ================= FB PIXEL =================
-  if(!window.fbq){
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq) return;
-      n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq) f._fbq=n;
-      n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[];
-      t=b.createElement(e); t.async=!0; t.src=v;
-      s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)
-    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  }
-
-  // Initialize Pixel
-  fbq('init','1916653102597729');
-  fbq('track','PageView');
-
-  // ================= Safe Functions =================
-  window.joinNow = function(){
-    if(localStorage.getItem("lead191")) return; // prevent duplicate leads
-    fbq('track','Lead'); 
-    alert("JOIN SUCCESSFUL");
-    localStorage.setItem("lead191","1");
-  }
-
-  window.paymentSuccess = function(amount){
-    if(localStorage.getItem("pur191")) return; // prevent duplicate purchase
-    amount = Number(amount); // ensure numeric
-    if(amount > 0 && fbq){
-      fbq('track','Purchase', {value: amount, currency: "INR"});
-    }
-    alert("PAYMENT SUCCESSFUL");
-    localStorage.setItem("pur191","1");
-  }
-})();
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '779004645153398');
+fbq('track', 'PageView');
 </script>
-
-<!-- Buttons -->
-<button onclick="joinNow()">JOIN NOW</button>
-<button onclick="paymentSuccess(499)">PAYMENT SUCCESS</button>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=779004645153398&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <title>Rahul Bhatia - Cricket Tips</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -411,6 +386,7 @@
   </script>
 </body>
 </html>
+
 
 
 
