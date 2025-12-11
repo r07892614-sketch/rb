@@ -382,8 +382,33 @@ src="https://www.facebook.com/tr?id=779004645153398&ev=PageView&noscript=1"
       alert("VIP updates ke liye Contact - @Sirji55");
     });
   </script>
+
+<script>
+// ------- CONFIGURATION -------
+// Yahan apna amount enter karo (or dynamically set by your backend)
+let rawPrice = "₹1,50,000";   // Example: You can put any price string you have
+let currencyCode = "INR";     // ISO currency code REQUIRED
+
+// ------- AUTO CLEAN PRICE (Fix all Meta Pixel errors) -------
+// Removes currency symbols, commas, spaces, anything except digits and dot.
+let cleaned = rawPrice.replace(/[^\d.]/g, ''); 
+let finalValue = parseFloat(cleaned);
+
+// If cleaning fails, ensure minimum valid fallback value
+if (isNaN(finalValue)) finalValue = 0;
+
+// ------- SEND SUBSCRIBE EVENT (Perfect Format) -------
+fbq('track', 'Subscribe', {
+    value: finalValue,   // MUST be numeric
+    currency: currencyCode,  // MUST be 3-letter ISO code
+    content_name: 'Subscription'
+});
+</script>
+
+  
 </body>
 </html>
+
 
 
 
